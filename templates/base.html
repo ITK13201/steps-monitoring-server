@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}{% endblock %}</title>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"/>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.js' %}"></script>
+
+  <!-- Google fonts -->
+  <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"/>
+
+  <!-- My style -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/mystyle.css' %}">
+</head>
+
+<body>
+{% block main %}{% endblock %}
+</body>
+
+</html>

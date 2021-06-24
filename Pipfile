@@ -1,0 +1,31 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+django = "*"
+psycopg2-binary = "*"
+gunicorn = "*"
+whitenoise = "*"
+dj-database-url = "*"
+mysqlclient = "*"
+pillow = "*"
+
+[dev-packages]
+black = "==20.8b1"
+watchdog = "*"
+pyyaml = "*"
+argh = "*"
+
+[requires]
+python_version = "3.8"
+
+[scripts]
+start = "python manage.py runserver"
+migrate = "python manage.py migrate"
+makemigrations = "python manage.py makemigrations"
+shell = "python manage.py shell"
+watch = "watchmedo tricks-from tricks.yml"
+format = "black ."

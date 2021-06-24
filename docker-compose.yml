@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+    app:
+        build:
+            context: ./
+            dockerfile: ./Dockerfile
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes:
+            - ./:/app/
+        ports:
+            - 8000:8000
+        environment:
+            DATABASE_ENGINE: "django.db.backends.mysql"
+            DATABASE_DB: "steps_monitoring_server"
+            DATABASE_USER: "user"
+            DATABASE_PASSWORD: "password"
+            DATABASE_HOST: "mysql"
+            DATABASE_PORT: "3306"
+        env_file: ./.env
+        depends_on:
+            - mysql
+
+    mysql:
+        image: mysql:5.7
+        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+        ports:
+            - 3306:3306
+        environment: 
+            MYSQL_ROOT_PASSWORD: "password"
+            MYSQL_DATABASE: "steps_monitoring_server"
+            MYSQL_USER: "user"
+            MYSQL_PASSWORD: "password"
+            TZ: "Asia/Tokyo"
+        volumes:
+            - ./mysql/data:/var/lib/mysql
+            - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+
+volumes:
+    mysql:
