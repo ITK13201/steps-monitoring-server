@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # backend apps
     "backend.apps.BackendConfig",
     "backend.users.apps.UsersConfig",
+    "backend.steps.apps.StepsConfig",
 ]
 
 MIDDLEWARE = [
