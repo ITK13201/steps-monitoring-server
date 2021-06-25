@@ -21,9 +21,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-if os.environ.get('DEBUG_TYPE') == '1':
+if os.environ.get("DEBUG_TYPE") == "1":
     DEBUG = True
-elif os.environ.get('DEBUG_TYPE') == '0':
+elif os.environ.get("DEBUG_TYPE") == "0":
     DEBUG = False
 else:
     raise Exception('Error in the "DEBUG_TYPE" environment variable!')
@@ -126,4 +126,3 @@ AUTHENTICATION_BACKENDS = (
 # ====================
 # Secret Environment
 # ====================
-

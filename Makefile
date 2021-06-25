@@ -22,7 +22,7 @@ createsuperuser:
 clean-mysql:
 	./bin/mysql/reset.sh
 format:
-	docker-compose exec ${IMAGE} pipenv run format
+	docker-compose exec ${IMAGE} black .
 watch:
-	docker-compose exec ${IMAGE} pipenv run watch
+	docker-compose exec ${IMAGE} watchmedo tricks-from tricks.yml
 restart: down start
