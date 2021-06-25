@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "backend.apps.BackendConfig",
     "backend.users.apps.UsersConfig",
     "backend.steps.apps.StepsConfig",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -122,6 +123,7 @@ AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
 )
 
+APPEND_SLASH = False
 
 # ====================
 # Secret Environment

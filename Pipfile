@@ -12,6 +12,7 @@ whitenoise = "*"
 dj-database-url = "*"
 mysqlclient = "*"
 pillow = "*"
+djangorestframework = "*"
 
 [dev-packages]
 black = "==20.8b1"
