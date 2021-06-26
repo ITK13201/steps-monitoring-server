@@ -5,7 +5,8 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import japanize_matplotlib
 
-JST = datetime.timezone(datetime.timedelta(hours=+9), 'JST')
+JST = datetime.timezone(datetime.timedelta(hours=+9), "JST")
+
 
 def plt2svg() -> bytes:
     buf = io.BytesIO()

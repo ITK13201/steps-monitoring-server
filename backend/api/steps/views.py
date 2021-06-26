@@ -10,6 +10,7 @@ from backend.steps.models import Step
 
 logger = logging.getLogger(__name__)
 
+
 class StepAddAPIView(APIView):
     authentication_classes = (authentication.BasicAuthentication,)
     permission_classes = (permissions.IsAdminUser,)

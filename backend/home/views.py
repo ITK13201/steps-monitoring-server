@@ -10,7 +10,8 @@ from backend.utils.generate_figures import plot_figure
 from backend.steps.models import Step
 
 logger = logging.getLogger(__name__)
-JST = datetime.timezone(datetime.timedelta(hours=+9), 'JST')
+JST = datetime.timezone(datetime.timedelta(hours=+9), "JST")
+
 
 class HomeView(generic.TemplateView):
     template_name = "home/index.html"

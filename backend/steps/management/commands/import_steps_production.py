@@ -10,6 +10,7 @@ from backend.steps.models import Step
 
 logger = logging.getLogger(__name__)
 
+
 class Command(BaseCommand):
     help = "Import steps data (Production)"
 
@@ -26,10 +27,7 @@ class Command(BaseCommand):
             dates.append(date)
 
         for i in range(6):
-            step = Step(
-                number=numbers[i],
-                created_at=dates[i]
-            )
+            step = Step(number=numbers[i], created_at=dates[i])
             step.save()
 
         logger.info("Import Steps Data (Production)")
