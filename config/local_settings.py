@@ -67,7 +67,7 @@ LOGGING = {
             "level": "INFO",
             "propagate": False,
         },
-        "app": {
+        "": {
             "handlers": ["console"],
             "level": "DEBUG",
             "propagate": False,

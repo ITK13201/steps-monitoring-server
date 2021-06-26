@@ -25,4 +25,8 @@ format:
 	docker-compose exec ${IMAGE} black .
 watch:
 	docker-compose exec ${IMAGE} watchmedo tricks-from tricks.yml
+import:
+	docker-compose exec ${IMAGE} python manage.py import_steps
+import-production:
+	docker-compose exec ${IMAGE} python manage.py import_steps_production
 restart: down start

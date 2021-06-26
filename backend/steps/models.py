@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class Step(models.Model):
-    id = models.UUIDField(_("ID"), primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.BigAutoField(_("ID"), primary_key=True, editable=False)
     number = models.IntegerField(_("歩数"), blank=False, null=False)
     created_at = models.DateTimeField(
         _("作成日時"), default=timezone.now, blank=False, null=False
