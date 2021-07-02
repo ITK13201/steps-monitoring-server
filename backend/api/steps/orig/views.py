@@ -1,6 +1,4 @@
 import logging
-import urllib.parse
-import pprint
 from django.http.request import HttpRequest
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -22,22 +20,12 @@ class StepAddAPIView(APIView):
         return Response(context, status=status.HTTP_501_NOT_IMPLEMENTED)
 
     def post(self, request: HttpRequest):
-        query = request.META.get("QUERY_STRING")
-        param = urllib.parse.parse_qs(query)
-        is_valid = False
-        try:
-            param["number"] = param.get("number")[0]
-            serializer = StepSerializer(data=param)
-            is_valid = serializer.is_valid()
-        except TypeError:
-            pass
-
-        if is_valid:
+        serializer = StepSerializer(data=request.data)
+        if serializer.is_valid():
             serializer.save()
-            logger.info("data:" + pprint.pformat(param))
-            context = {"message": "Successfully created!", "data": param}
+            context = {"message": "Successfully created!"}
+            logger.info(request.data)
             return Response(context, status=status.HTTP_201_CREATED)
-        else:
-            logger.info("data:" + pprint.pformat(param))
-            context = {"message": "invalid.", "data": param}
-            return Response(context, status=status.HTTP_400_BAD_REQUEST)
+
+        context = {"message": "invalid."}
+        return Response(context, status=status.HTTP_400_BAD_REQUEST)
