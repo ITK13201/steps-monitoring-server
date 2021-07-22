@@ -1,5 +1,7 @@
 # Steps Monitoring Server
 
+This is a server program for a system that can detect and monitor the number of steps taken using the DE10-nano.
+
 ## Install
 
 - docker
